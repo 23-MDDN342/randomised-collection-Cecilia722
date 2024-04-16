@@ -70,9 +70,9 @@ function blockyFace(thinness_value) {
   // head
   noStroke();
   fill(134, 19, 100);
-  let head_width = map(thinness_value, 0, 100, 8, 20);
+  let head_width = map(thinness_value, 0, 100, 10, 20);
   // rect(-head_width/2, -9, head_width, 18);
-  triangle(-head_width/2, -9, head_width/2, -9, head_width/4,18 )
+  triangle(-head_width/2, -9, head_width/2, -9, head_width/11,10)
  
 
   // eyes
