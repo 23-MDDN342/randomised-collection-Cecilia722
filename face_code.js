@@ -14,7 +14,7 @@
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
 function orangeAlienFace(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [71, 222, 219];
+  const bg_color3 = [71, 222, 100];
   const fg_color3 = [255, 93, 35];
 
   let headSize = 20
@@ -53,7 +53,7 @@ function orangeAlienFace(tilt_value, eye_value, mouth_value) {
 
 
 function simplePurpleFace() {
-  fill(234, 122, 244);
+  fill(234, 122, 200);
   noStroke();
   // head
   ellipse(0, 0, 20);
@@ -69,9 +69,10 @@ function simplePurpleFace() {
 function blockyFace(thinness_value) {
   // head
   noStroke();
-  fill(134, 19, 136);
+  fill(134, 19, 100);
   let head_width = map(thinness_value, 0, 100, 8, 20);
-  rect(-head_width/2, -9, head_width, 18);
+  // rect(-head_width/2, -9, head_width, 18);
+  triangle(-head_width/2, -9, head_width/2, -9, head_width/4,18 )
  
 
   // eyes
