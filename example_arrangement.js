@@ -17,6 +17,7 @@ function setup () {
   curRandomSeed = int(random(0, 1000));
 
   // rotation in degrees
+  
   angleMode(DEGREES);
 }
 
@@ -26,7 +27,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [71, 222, 20]
+const bg_color1 = [212,180,140]
 
 function mouseClicked() {
   changeRandomSeed();
@@ -41,7 +42,8 @@ function draw () {
   randomSeed(curRandomSeed);
 
   // clear screen
-  background(bg_color1);
+  // background(212,180,140);
+    background(bg_color1);
   noStroke();
 
   // draw a 7x4 grid of faces
