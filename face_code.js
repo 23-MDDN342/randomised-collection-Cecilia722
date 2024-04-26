@@ -162,14 +162,16 @@ let color_ResedaGreen = color("#84805a")
   ellipse(-2, -4, 1);
   ellipse(2, -4, 1);
 
-  let= RF_x = map(thinness_value, 0, 100, 0, 10);
+  let= RF_x = map(thinness_value, 0, 100, -head_width/2, 10)
+  let RF_size=map(head_width,0,40,0,random(10,20))
 
-  rotate(radians(20));	
+  // rotate(strawberryRotate);	
+  rotate(20);
   fill(color_Carmine);
   stroke(color_Carmine);
   strokeWeight(10);
   strokeJoin(ROUND);
-  triangle(460/RF_x, 15/RF_x,540/RF_x,15/RF_x,500/RF_x,95/RF_x);
+  triangle(460/RF_x, 15/RF_x,540/RF_x,15/RF_x,500/RF_x,95/RF_size);
   
   strokeWeight(2);
   stroke(color_DarkGreen);
