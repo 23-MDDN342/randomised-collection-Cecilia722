@@ -139,7 +139,7 @@ quad(50/RF_y,1.6/RF_y,48/RF_y,-0.5/RF_y,50/RF_y,-4/RF_y,52/RF_y,-0.5/RF_y);
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function blockyFace(thinness_value) {
+function strawBerry(thinness_value) {
   // head
 
 
@@ -154,35 +154,67 @@ let color_ResedaGreen = color("#84805a")
 
   let head_width = map(thinness_value, 0, 100, 10, 20);
   // rect(-head_width/2, -9, head_width, 18);
-  triangle(-head_width / 2, -9, head_width / 2, -9, head_width / 11, 10)
+  // triangle(-head_width / 2, -9, head_width / 2, -9, head_width / 11, 10)
 
 
-  // eyes
-  fill(color_Brown);
-  ellipse(-2, -4, 1);
-  ellipse(2, -4, 1);
+
 
   let= RF_x = map(thinness_value, 0, 100, -head_width/2, 10)
   let RF_size=map(head_width,0,40,0,random(10,20))
+  strokeJoin(ROUND);
 
-  // rotate(strawberryRotate);	
-  rotate(20);
+
+    
   fill(color_Carmine);
   stroke(color_Carmine);
-  strokeWeight(10);
-  strokeJoin(ROUND);
-  triangle(460/RF_x, 15/RF_x,540/RF_x,15/RF_x,500/RF_x,95/RF_size);
-  
+  strokeWeight(8);
+  triangle(-head_width / 2+3, 0, head_width / 2-3, 0, 0 , 8);
+
   strokeWeight(2);
   stroke(color_DarkGreen);
-  fill(color_DarkGreen);
-  quad(440/RF_x,-30/RF_x,470/RF_x,-20/RF_x,500/RF_x,8/RF_x,470/RF_x,8/RF_x);
-  quad(560/RF_x,-30/RF_x,530/RF_x,-20/RF_x,500/RF_x,8/RF_x,530/RF_x,8/RF_x);
-  quad(500/RF_x,16/RF_x,480/RF_x,-5/RF_x,500/RF_x,-40/RF_x,520/RF_x,-5/RF_x);
-    
+  fill( color_DarkGreen);
+
+
+  push()
+
+  translate(0,-3)
+  Leaf(0,0)
+
+
+  push() 
+  rotate(1)
+  Leaf()
+  pop()
+
+  push() 
+  rotate(-1)
+  Leaf()
+  pop()
+
+
+
+
+  
+
+  
   noStroke();
   fill(color_Brown);
   ellipse(470/RF_x,40/RF_x,20/RF_x);
   ellipse(470*1.1/RF_x,40/RF_x,20/RF_x);
+
+    // eyes
+    fill(color_Brown);
+    ellipse(-2, 6, 1);
+    ellipse(2, 6, 1);
+  
+
+}
+
+function Leaf(){
+
+  let color_DarkGreen = color("#42421c")
+
+  quad(0,-8,        1.5,-6,      0,0,          -1.5,-6);
+
 
 }

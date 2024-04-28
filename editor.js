@@ -93,7 +93,7 @@ function draw () {
 
   if (mode == '2') {
      // let slider value 1 indicate thinness
-     blockyFace(s1);
+     strawBerry(s1);
   }
   if (mode == '3') {
     simplePurpleFace();
