@@ -84,71 +84,36 @@ function simplePurpleFace() {
   let color_Yellow = color("#dbb447")
   let color_ResedaGreen = color("#84805a")
   let color_Brown = color('#1f0a0b')
-
-  fill(color_ResedaGreen);
-  // noStroke();
-  // // head
-  // ellipse(0, 0, 20);
-  // // eyes
-
-  // fill(color_Brown);
-  // ellipse(-3, -3, 3);
-  // ellipse(3, -3, 3);
-  let RF_y =-1
-  let RF_size=-1
-
-  // stroke(50,140,48);
-  // strokeWeight(1);
-  // arc(50/RF_y, 60/RF_y, 40/RF_y, 40/RF_y, 0/RF_y, PI/RF_y, OPEN);
-  // noFill();
-  // arc(65/RF_y, 60/RF_y, 40/RF_y, 80/RF_y, PI/1.5*RF_y, 3*PI/2*RF_y, OPEN);//leaf vein
-  // arc(65/RF_y,60/RF_y,70/RF_y,80/RF_y,PI/RF_y,3*PI/2*RF_y,OPEN);
-  // arc(70/RF_y,20/RF_y,10/RF_y,80/RF_y,PI/2/RF_y,PI/RF_y,OPEN);
-  // fill(50,140,48);
-  // strokeWeight(1);
-  // triangle(46/RF_y, 75/RF_y, 69/RF_y, 62/RF_y, 44/RF_y, 68/RF_y);
-  // triangle(44/RF_y, 68/RF_y, 32/RF_y, 60/RF_y, 46/RF_y, 75/RF_y);
-  // triangle(45/RF_y, 60/RF_y, 65/RF_y, 44/RF_y, 45/RF_y, 51/RF_y);
-  // triangle(45/RF_y, 60/RF_y, 33/RF_y, 44/RF_y, 45/RF_y, 51/RF_y);
-  // triangle(49/RF_y,36/RF_y,43/RF_y,30/RF_y,47/RF_y,40/RF_y);
-  // triangle(49/RF_y,36/RF_y,65/RF_y,31/RF_y,47/RF_y,40/RF_y);
-  // noFill();
-
-
-
-//   strokeWeight();
-//   strokeJoin(ROUND);
-// stroke(color_ResedaGreen);
-// fill(color_ResedaGreen);
-// quad(44/RF_y,-3/RF_y,47/RF_y,-2/RF_y,50/RF_y,1/RF_y,47/RF_y,1/RF_y);
-// quad(56/RF_y,-3/RF_y,53/RF_y,-2/RF_y,50/RF_y,1/RF_y,53/RF_y,1/RF_y);
-// quad(50/RF_y,1.6/RF_y,48/RF_y,-0.5/RF_y,50/RF_y,-4/RF_y,52/RF_y,-0.5/RF_y);
- 
-// arc(-50, -50, 10, 10, 0, 180);
-
-//   strokeWeight();
-//   strokeJoin(ROUND);
-// stroke(color_ResedaGreen);
-fill(color_ResedaGreen);
-quad(50/RF_y,1.6/RF_y,48/RF_y,-0.5/RF_y,50/RF_y,-4/RF_y,52/RF_y,-0.5/RF_y);
+  
+  fill(color_White)
+  ellipse(1,1,10)
 
 }  
 
 
 
+function Leaf(    thinness_value,leafHight_value){
+
+  let leafHight = map(leafHight_value,0,100,4,10)
+  quad(0,-leafHight,      1.5,-6,     0,0,          -1.5,-6);
+
+
+}
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function strawBerry(thinness_value) {
+function strawBerry(thinness_value,leafHight_value, leafAngle_value) {
   // head
 
-
+  angleMode(DEGREES);
   noStroke();
   let color_Carmine = color("#950a1e")
 
   let color_Brown = color('#1f0a0b')
   let color_DarkGreen = color("#42421c")
-let color_ResedaGreen = color("#84805a")
+  let color_ResedaGreen = color("#84805a")
+  let leafHight=map(leafHight_value,0,100,1,10)
+
 
   fill(color_Carmine);
 
@@ -161,6 +126,8 @@ let color_ResedaGreen = color("#84805a")
 
   let= RF_x = map(thinness_value, 0, 100, -head_width/2, 10)
   let RF_size=map(head_width,0,40,0,random(10,20))
+  let leafAngle=map(leafAngle_value,0,100,40,50)
+  let leafPoint_Y=-2
   strokeJoin(ROUND);
 
 
@@ -170,27 +137,31 @@ let color_ResedaGreen = color("#84805a")
   strokeWeight(8);
   triangle(-head_width / 2+3, 0, head_width / 2-3, 0, 0 , 8);
 
-  strokeWeight(2);
-  stroke(color_DarkGreen);
-  fill( color_DarkGreen);
+  strokeWeight(1);
+  stroke(color_ResedaGreen);
+  fill( color_ResedaGreen);
 
 
   push()
+  
+  translate (0,leafPoint_Y)
+  scale(1,1)
+  Leaf(    thinness_value,leafHight_value)
+  pop()
 
-  translate(0,-3)
-  Leaf(0,0)
+  push()
+  translate (0,leafPoint_Y)
+  rotate(leafAngle)
 
-
-  push() 
-  rotate(1)
-  Leaf()
+  Leaf(    thinness_value,leafHight_value)
   pop()
 
   push() 
-  rotate(-1)
-  Leaf()
-  pop()
+  translate (0,leafPoint_Y)
+  rotate(-leafAngle)
 
+  Leaf(    thinness_value,leafHight_value)
+  pop()
 
 
 
@@ -206,15 +177,7 @@ let color_ResedaGreen = color("#84805a")
     fill(color_Brown);
     ellipse(-2, 6, 1);
     ellipse(2, 6, 1);
-  
 
 }
 
-function Leaf(){
 
-  let color_DarkGreen = color("#42421c")
-
-  quad(0,-8,        1.5,-6,      0,0,          -1.5,-6);
-
-
-}

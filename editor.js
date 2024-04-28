@@ -93,7 +93,11 @@ function draw () {
 
   if (mode == '2') {
      // let slider value 1 indicate thinness
-     strawBerry(s1);
+     let thinness_value=map(s1, 0, 100,0, 100);
+     let leafHight_value=map(s2, 0, 100,0, 100)
+    let  leafAngle_value=map(s3, 0, 100,0, 100)
+     strawBerry(thinness_value,leafHight_value, leafAngle_value);
+   
   }
   if (mode == '3') {
     simplePurpleFace();

@@ -80,7 +80,10 @@ function draw () {
         }
         else {
           thinness_value = random(0, 100);
-          blockyFace(thinness_value);
+          leafHight_value=random(0, 100);
+          leafAngle_value=random(0,100)
+          strawBerry(thinness_value,leafHight_value,leafAngle_value);
+     
         }
         pop();
       }
