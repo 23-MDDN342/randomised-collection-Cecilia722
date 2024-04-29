@@ -67,7 +67,10 @@ function draw () {
         push();
         translate(x, y);
         scale(w/25, h/25);
-        orangeAlienFace(tilt_value, eye_value, mouth_value);
+        daisyFace(tilt_value, eye_value, mouth_value);
+        let petalHight_value= random(0, 100);
+        let petalWide_value= random(0, 100);
+        petal(petalHight_value,petalWide_value)
         pop();
       }
       else if (i > 0) {
@@ -76,7 +79,16 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
-          simplePurpleFace();
+
+          let bigLeaf_H_value=random(0, 100);
+          let bigLeaf_W_value=random(0, 100);
+          let heart_W_value=random(0, 100);
+          let heart_H_value=random(0, 100);
+          
+          bigLeaf(bigLeaf_H_value,bigLeaf_W_value,heart_W_value,heart_H_value)
+ 
+         
+          
         }
         else {
           thinness_value = random(0, 100);

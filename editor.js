@@ -46,7 +46,7 @@ function setup () {
   faceSelector.option('1');
   faceSelector.option('2');
   faceSelector.option('3');
-  faceSelector.value('2');
+  faceSelector.value('1');
   faceSelector.parent('selector1Container');
 }
 
@@ -88,7 +88,12 @@ function draw () {
    let tilt_value = map(s1, 0, 100, -90, 90);
    let mouth_value = map(s2, 0, 100, 0.5, 10);
    let eye_value = int(map(s3, 0, 100, 1, 3));
-   orangeAlienFace(tilt_value, eye_value, mouth_value);
+   daisyFace(tilt_value, eye_value, mouth_value);
+
+   let petalHight_value=map(s7, 0, 100, 0, 100)
+   let petalWide_value=map(s8, 0, 100, 0, 100);
+   petal(petalHight_value,petalWide_value)
+
   }
 
   if (mode == '2') {
@@ -100,7 +105,16 @@ function draw () {
    
   }
   if (mode == '3') {
-    simplePurpleFace();
+    let bigLeaf_H_value=map(s4, 0, 100,0, 100);
+    let bigLeaf_W_value=map(s5, 0, 100,0, 100);
+
+    let heart_W_value=map(s9, 0, 100,0, 100);
+    let heart_H_value=map(s10, 0, 100,0, 100);
+
+    bigLeaf(bigLeaf_H_value,bigLeaf_W_value,heart_W_value,heart_H_value)
+
+    // bigLeaf(bigLeaf_H_value,bigLeaf_W_value)
+    // heartshape(heart_W_value,heart_H_value)
   }
 
   pop();
