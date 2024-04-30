@@ -84,8 +84,9 @@ function draw () {
           let bigLeaf_W_value=random(0, 100);
           let heart_W_value=random(0, 100);
           let heart_H_value=random(0, 100);
-          
-          bigLeaf(bigLeaf_H_value,bigLeaf_W_value,heart_W_value,heart_H_value)
+          let bigLeaf_Angle_value=random(0, 100);
+
+          bigLeaf(bigLeaf_H_value,bigLeaf_W_value,heart_W_value,heart_H_value,bigLeaf_Angle_value)
  
          
           
@@ -94,7 +95,14 @@ function draw () {
           thinness_value = random(0, 100);
           leafHight_value=random(0, 100);
           leafAngle_value=random(0,100)
-          strawBerry(thinness_value,leafHight_value,leafAngle_value);
+          eye_switch_value=int(random(1,3))
+          mouth_switch_value=int(random(1,3))
+
+
+       petalHight_value= random(0, 100);
+       petalWide_value= random(0, 100);
+
+          strawBerry(thinness_value,leafHight_value, leafAngle_value,eye_switch_value,mouth_switch_value,petalHight_value,petalWide_value);
      
         }
         pop();

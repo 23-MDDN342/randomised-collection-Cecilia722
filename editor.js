@@ -88,10 +88,8 @@ function draw () {
    let tilt_value = map(s1, 0, 100, 0, 100);
    let mouth_value = map(s2, 0, 100, 0, 4);
    let eye_value = int(map(s3, 0, 100, 0, 3));
-
-
-   let petalHight_value=map(s7, 0, 100, 0, 100)
-   let petalWide_value=map(s8, 0, 100, 0, 100);
+   let petalHight_value=map(s4, 0, 100, 0, 100)
+   let petalWide_value=map(s5, 0, 100, 0, 100);
 
    daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide_value);
 
@@ -102,18 +100,22 @@ function draw () {
      let thinness_value=map(s1, 0, 100,0, 100);
      let leafHight_value=map(s2, 0, 100,0, 100)
     let  leafAngle_value=map(s3, 0, 100,0, 100)
-    let eye_value = int(map(s3, 0, 100, 0, 3));
-     strawBerry(thinness_value,leafHight_value, leafAngle_value,eye_value);
+    let eye_switch_value=int(map(s4, 0, 100, 1, 3));
+    let mouth_switch_value=int(map(s5, 0, 100, 1, 3));
+    let petalHight_value=map(s4, 0, 100, 0, 100)
+    let petalWide_value=map(s5, 0, 100, 0, 100);
+
+     strawBerry(thinness_value,leafHight_value, leafAngle_value,eye_switch_value,mouth_switch_value,petalHight_value,petalWide_value);
    
   }
   if (mode == '3') {
-    let bigLeaf_H_value=map(s4, 0, 100,0, 100);
-    let bigLeaf_W_value=map(s5, 0, 100,0, 100);
+    let bigLeaf_H_value=map(s1, 0, 100,0, 100);
+    let bigLeaf_W_value=map(s2, 0, 100,0, 100);
+    let heart_W_value=map(s3, 0, 100,0, 100);
+    let heart_H_value=map(s4, 0, 100,0, 100);
+    let bigLeaf_Angle_value=map(s5, 0, 100,0, 100);
+    bigLeaf(bigLeaf_H_value,bigLeaf_W_value,heart_W_value,heart_H_value,bigLeaf_Angle_value)
 
-    let heart_W_value=map(s9, 0, 100,0, 100);
-    let heart_H_value=map(s10, 0, 100,0, 100);
-
-    bigLeaf(bigLeaf_H_value,bigLeaf_W_value,heart_W_value,heart_H_value)
 
     // bigLeaf(bigLeaf_H_value,bigLeaf_W_value)
     // heartshape(heart_W_value,heart_H_value)
