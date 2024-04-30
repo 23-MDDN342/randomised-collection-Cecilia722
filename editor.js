@@ -85,14 +85,15 @@ function draw () {
   push();
   if (mode == '1') {
    // draw face using values mapped from 3 sliders
-   let tilt_value = map(s1, 0, 100, -90, 90);
-   let mouth_value = map(s2, 0, 100, 0.5, 10);
-   let eye_value = int(map(s3, 0, 100, 1, 3));
-   daisyFace(tilt_value, eye_value, mouth_value);
+   let tilt_value = map(s1, 0, 100, 0, 100);
+   let mouth_value = map(s2, 0, 100, 0, 4);
+   let eye_value = int(map(s3, 0, 100, 0, 3));
+
 
    let petalHight_value=map(s7, 0, 100, 0, 100)
    let petalWide_value=map(s8, 0, 100, 0, 100);
-   petal(petalHight_value,petalWide_value)
+
+   daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide_value);
 
   }
 
@@ -101,7 +102,8 @@ function draw () {
      let thinness_value=map(s1, 0, 100,0, 100);
      let leafHight_value=map(s2, 0, 100,0, 100)
     let  leafAngle_value=map(s3, 0, 100,0, 100)
-     strawBerry(thinness_value,leafHight_value, leafAngle_value);
+    let eye_value = int(map(s3, 0, 100, 0, 3));
+     strawBerry(thinness_value,leafHight_value, leafAngle_value,eye_value);
    
   }
   if (mode == '3') {

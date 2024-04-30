@@ -67,10 +67,10 @@ function draw () {
         push();
         translate(x, y);
         scale(w/25, h/25);
-        daisyFace(tilt_value, eye_value, mouth_value);
+
         let petalHight_value= random(0, 100);
         let petalWide_value= random(0, 100);
-        petal(petalHight_value,petalWide_value)
+        daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide_value)
         pop();
       }
       else if (i > 0) {

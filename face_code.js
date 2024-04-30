@@ -24,14 +24,10 @@ let color_RoseWood = color("#5f0d11")
 let color_Brown = color("#1f0a0b")
 let color_White = color("#fdf5e5")
 let color_Yellow = color("#dbb447")
+let color_PeachYellow = color("#edd596")
 
 
-function petal (petalHight_value,petalWide_value){
-  let petalHight=map(petalHight_value,0,100,3,13)
-  let petalWide=map(petalWide_value,0,100,5,10)
-  bezier(0, 0,  -petalWide, -petalHight,  petalWide, -petalHight, 0, 0);
 
- }
 
 
  function heartshape(heart_W_value,heart_H_value){
@@ -52,18 +48,23 @@ function petal (petalHight_value,petalWide_value){
 
  }
 
-function daisyFace(tilt_value, eye_value, mouth_value) {
+function daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide_value) {
 
 
   // const bg_color3 = [71, 222, 100];
   // const fg_color3 = [255, 93, 35];
 
-  let headSize = 2
+  let headSize = 9
   let eyeSize = 1;
   let centerX = 0;
-  let Iy = -4
-  let distactBetweenEyes = 5
-  let MouthDrop = 7
+  let Iy =0
+  let distactBetweenEyes = 2
+  let MouthDrop = map(mouth_value,0,100,2,10)
+  let Mouth_W=random(0.7,2)
+
+  let pistilSize=2
+  let pistilNumber=9
+  let petalNumber=int(map(random(0,100),0,100,3,6))
 
   let color_DarkGreen = color("#42421c")
   let color_ResedaGreen = color("#84805a")
@@ -74,40 +75,118 @@ function daisyFace(tilt_value, eye_value, mouth_value) {
   let color_Brown = color("#1f0a0b")
   let color_White = color("#fdf5e5")
   let color_Yellow = color("#dbb447")
+  let color_PeachYellow = color("#edd596")
+
+
+
+
+
 
   // rotation in degrees
   angleMode(DEGREES);
   rotate(tilt_value);
 
-  // head
+//petals
+  for(let i = 0;i<petalNumber;i++){
+
+  
+    fill(color_White)
+    petal(petalHight_value,petalWide_value)
+  
+    rotate(360/petalNumber)
+  }
+
+  // face & pistil
   noStroke();
   fill(color_Yellow);
   ellipse(centerX, 0, headSize, headSize);
 
-  // 2 traditonal eyes
+  for(let i = 0;i<pistilNumber;i++){
+
+
+
+  
+    fill(color_PeachYellow)
+
+    
+    ellipse(0, headSize/2.3, pistilSize, pistilSize);
+  
+    rotate(360/pistilNumber)
+ 
+  }
+
+
+
+
+
+
+  // 2 sharp eyes with nose
   if (eye_value === 1 || eye_value == 3) {
+    fill(color_IndianRed)
+    ellipse(centerX, Iy, eyeSize+1,eyeSize);
+
     fill(color_Brown);
-    ellipse(centerX, Iy, eyeSize - 1, eyeSize);
+
+  
+
+    arc(centerX - distactBetweenEyes, Iy-0.5, eyeSize*1.5,eyeSize*1.5, 0, 180);
+    arc(centerX + distactBetweenEyes, Iy-0.5, eyeSize*1.5,eyeSize*1.5, 0, 180);
 
   }
-  // middle eye
+  // tow round eyes
   if (eye_value >= 2) {
     fill(color_Brown);
+    
     ellipse(centerX - distactBetweenEyes, Iy, eyeSize);
     ellipse(centerX + distactBetweenEyes, Iy, eyeSize);
   }
 
-  // mouth
+
+  // cool mouth
+  if (mouth_value === 1 || mouth_value == 3) {
+
+    strokeWeight(0.5)
+    strokeJoin(ROUND)
+    stroke(color_Brown);
+    noFill()
+    beginShape();
+    vertex(-Mouth_W, 2);
+    vertex(centerX, Iy + 0.5*MouthDrop);
+    vertex(Mouth_W, 2);
+    endShape();
+
+  }
+  // nice mouth
+  if (mouth_value >= 2) {
+
+
+  strokeWeight(0.5)
+  strokeJoin(ROUND)
+  stroke(color_IndianRed);
   fill(color_IndianRed);
-  ellipse(centerX, Iy + MouthDrop, distactBetweenEyes, mouth_value);
+  beginShape();
 
 
-  for(let i = 0;i<16;i++){
-  scale(1,1)
-  petal()
+  arc(centerX, Iy+1, Mouth_W*2, Iy + MouthDrop, 0, 180);
+  line(-Mouth_W,Iy+1,Mouth_W,Iy+1)
+  endShape();
 
-  rotate(30)}
+  noStroke()
+  fill(color_White)
+  rect(-Mouth_W/2, Iy+1, Mouth_W, Iy + MouthDrop/5)
+  }
+
+
 }
+
+
+
+function petal (petalHight_value,petalWide_value){
+  let petalHight=map(petalHight_value,0,100,9,13)
+  let petalWide=map(petalWide_value,0,100,10,12)
+  bezier(0, 0,  -petalWide, -petalHight,  petalWide, -petalHight, 0, 0);
+
+ }
 
 
 function  bigLeaf(bigLeaf_H_value,bigLeaf_W_value,heart_W_value,heart_H_value,){
@@ -224,7 +303,11 @@ function strawBerry(thinness_value,leafHight_value, leafAngle_value) {
   let color_Brown = color('#1f0a0b')
   let color_DarkGreen = color("#42421c")
   let color_ResedaGreen = color("#84805a")
+
+
   let leafHight=map(leafHight_value,0,100,1,10)
+
+
 
 
   fill(color_Carmine);
@@ -278,19 +361,36 @@ function strawBerry(thinness_value,leafHight_value, leafAngle_value) {
 
 
 
+  let eye_switch=int(map(random(0,4),0,4,1,3))
+  let eye_Space=map(random(0,100),0,100,2,3)
+  let eye_H=map(leafHight_value,0,100,2,random(2.4,6))
+
+//cool eyes
+    if (eye_switch== 1 || eye_switch == 3) {
+
+
+      ellipse(0, 0, 3,3);
   
-  noStroke();
-  fill(color_Brown);
-  ellipse(470/RF_x,40/RF_x,20/RF_x);
-  ellipse(470*1.1/RF_x,40/RF_x,20/RF_x);
+      fill(color_Brown);
+      noStroke()
+  
+    
 
-    // eyes
-    fill(color_Brown);
-    ellipse(-2, 2, 1);
-    ellipse(2, 2, 1);
+      arc(-eye_Space, 0 ,3,eye_H, 0, 180);
+      arc(eye_Space, 0, 3,eye_H,0, 180);
+  
+    }
+    // tow round eyes
+    if (eye_switch >= 2) {
 
-    arc(0, 3, 4,4, 0, 180);
+ 
+      fill(color_Brown);
+      
+      ellipse(0 - 1, 1, 2);
+      ellipse(0 + 1, 1, 2);
+    }
 
+        
 }
 
 

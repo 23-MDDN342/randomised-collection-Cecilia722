@@ -54,9 +54,9 @@ function draw () {
       let x = w/2 + w*j;
      
         // center face
-        let eye_value = int(random(2,4));
-        let tilt_value = random(-45, 45);
-        let mouth_value = random(3,4);
+        let eye_value = int(random(0,100));
+        let tilt_value = random(0,100);
+        let mouth_value = random(0,100);
         let is_cyclops = random(0, 100);
 
         if(is_cyclops < 10) {
