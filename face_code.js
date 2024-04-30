@@ -298,11 +298,19 @@ function strawBerry(thinness_value,leafHight_value, leafAngle_value) {
 
   angleMode(DEGREES);
   noStroke();
-  let color_Carmine = color("#950a1e")
 
-  let color_Brown = color('#1f0a0b')
-  let color_DarkGreen = color("#42421c")
-  let color_ResedaGreen = color("#84805a")
+
+
+let color_DarkGreen = color("#42421c")
+let color_ResedaGreen = color("#84805a")
+let color_Tan = color("#d4b48c")
+let color_IndianRed = color("#bd6868")
+let color_Carmine = color("#950a1e")
+let color_RoseWood = color("#5f0d11")
+let color_Brown = color("#1f0a0b")
+let color_White = color("#fdf5e5")
+let color_Yellow = color("#dbb447")
+let color_PeachYellow = color("#edd596")
 
 
   let leafHight=map(leafHight_value,0,100,1,10)
@@ -362,32 +370,33 @@ function strawBerry(thinness_value,leafHight_value, leafAngle_value) {
 
 
   let eye_switch=int(map(random(0,4),0,4,1,3))
-  let eye_Space=map(random(0,100),0,100,2,3)
-  let eye_H=map(leafHight_value,0,100,2,random(2.4,6))
-
-//cool eyes
+  let eye_Space=map(random(0,100),0,100,1.8,2.1)
+  let eye_H=map(leafHight_value,0,100,2.5,random(2.9,6))
+  let eye_W=map(leafHight_value,0,100,2,random(2.1,4))
+// tow round eyes
     if (eye_switch== 1 || eye_switch == 3) {
-
-
-      ellipse(0, 0, 3,3);
-  
-      fill(color_Brown);
       noStroke()
-  
-    
-
-      arc(-eye_Space, 0 ,3,eye_H, 0, 180);
-      arc(eye_Space, 0, 3,eye_H,0, 180);
-  
-    }
-    // tow round eyes
-    if (eye_switch >= 2) {
-
- 
       fill(color_Brown);
       
       ellipse(0 - 1, 1, 2);
       ellipse(0 + 1, 1, 2);
+   
+      
+    }
+  
+//cool eyes  
+    if (eye_switch == 2) {
+      noStroke()
+      fill(color_IndianRed);
+      ellipse(0, eye_W, 3,3);
+  
+      fill(color_Brown);
+   
+  
+    
+
+      arc(-eye_Space, 0 ,eye_W,eye_H, 0, 180);
+      arc(eye_Space, 0, eye_W,eye_H,0, 180);
     }
 
         

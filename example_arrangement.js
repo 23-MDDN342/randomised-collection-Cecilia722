@@ -57,12 +57,12 @@ function draw () {
         // center face
         let eye_value = 2;
         let tilt_value = random(-45, 45);
-        let mouth_value = random(1, 3);
+        let mouth_value =int(random(1, 3));
         let is_cyclops = random(0, 100);
         if(is_cyclops < 10) {
           eye_value = 1;
           tilt_value = random(-5, 5);
-          mouth_value = random(5, 10);
+          mouth_value = int(random(1, 3));
         }
         push();
         translate(x, y);
