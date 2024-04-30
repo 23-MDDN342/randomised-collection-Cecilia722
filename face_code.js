@@ -48,7 +48,7 @@ let color_PeachYellow = color("#edd596")
 
  }
 
-function daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide_value) {
+function daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide_value,petalNumber_value) {
 
   scale(1,1);
   // const bg_color3 = [71, 222, 100];
@@ -64,7 +64,7 @@ function daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide
 
   let pistilSize=2
   let pistilNumber=9
-  let petalNumber=int(map(random(0,100),0,100,3,6))
+  let petalNumber=int(map(petalNumber_value,0,100,3,6))
 
   let color_DarkGreen = color("#42421c")
   let color_ResedaGreen = color("#84805a")

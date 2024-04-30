@@ -4,6 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
+// let color_Tan = color("#d4b48c")
 const bg_color = [71, 222, 219];
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
@@ -57,7 +58,7 @@ function draw () {
 
   let mode = faceSelector.value();
 
-  background(bg_color);
+  background("#d4b48c");
 
   let s1 = slider1.value();
   let s2 = slider2.value();
@@ -90,8 +91,9 @@ function draw () {
    let eye_value = int(map(s3, 0, 100, 0, 3));
    let petalHight_value=map(s4, 0, 100, 0, 100)
    let petalWide_value=map(s5, 0, 100, 0, 100);
+   let petalNumber_value=map(s6, 0, 100, 0, 100);
 
-   daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide_value);
+   daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide_value,petalNumber_value);
 
   }
 
