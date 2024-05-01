@@ -173,7 +173,7 @@ function daisyFace(tilt_value, eye_value, mouth_value,petalHight_value,petalWide
 
   noStroke()
   fill(color_White)
-  rect(-Mouth_W/2, Iy+1, Mouth_W, Iy + MouthDrop/5)
+  rect(-Mouth_W/20, Iy+1, Mouth_W, Iy + MouthDrop/5)
   }
 
 
@@ -518,7 +518,7 @@ pop()
   strokeWeight(0.1)
   stroke(color_White);
   fill(color_White)
-  rect(-mouth_W_2/2, centerY+mouth_H/2, mouth_W_2, mouth_H/4)
+  rect(-mouth_W_2/20, centerY+mouth_H/2, mouth_W_2, mouth_H/4)
   }
 
 
