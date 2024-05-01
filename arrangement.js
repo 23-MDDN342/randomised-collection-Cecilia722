@@ -19,7 +19,12 @@ function setup() {
   // rotation in degrees
 
   angleMode(DEGREES);
-  rotateMode(CENTER)
+  rectMode(CENTER)
+
+
+
+let color_PeachYellow = color("#edd596")
+
 }
 
 function changeRandomSeed() {
@@ -35,6 +40,16 @@ function mouseClicked() {
 }
 
 function draw() {
+
+  let color_DarkGreen = color("#42421c")
+let color_ResedaGreen = color("#84805a")
+let color_Tan = color("#d4b48c")
+let color_IndianRed = color("#bd6868")
+let color_Carmine = color("#950a1e")
+let color_RoseWood = color("#5f0d11")
+let color_Brown = color("#1f0a0b")
+let color_White = color("#fdf5e5")
+let color_Yellow = color("#dbb447")
   if (millis() > lastSwapTime + millisPerSwap) {
     changeRandomSeed();
   }
@@ -65,19 +80,20 @@ function draw() {
   let petalWide_value = random(0, 100);
   let petalNumber_value = random(0, 100);
 
-  let random_daisyFace_size_Fac = map(petalNumber_value, 0, 100, 30, 20)
-  let random_DaisyX = random(-20, 960 - 10)
-  let random_DaisyY = random(-20, 500 - 10)
+  let random_daisyFace_size_Fac = map(petalNumber_value, 0, 100, 30, 24)
+  let random_DaisyX = random(550,750)
+  let random_DaisyY = random(180,240)
 
 
   push();
   translate(random_DaisyX, random_DaisyY);
   scale(w / random_daisyFace_size_Fac, h / random_daisyFace_size_Fac);
+  rotate(random(0, 360))
 
   daisyFace(tilt_value, eye_value, mouth_value, petalHight_value, petalWide_value, petalNumber_value)
   pop();
 
-  push()
+
 
   thinness_value = random(0, 100);
   leafHight_value = random(0, 100);
@@ -89,18 +105,55 @@ function draw() {
   petalHight_value = random(0, 100);
   petalWide_value = random(0, 100);
 
-  random_BerryX = random(40, 100)
-  random_BerryY = random(50, 100)
+  random_BerryX = random(200, 380)
+  random_BerryY = random(180,240)
   random_Berry_size_Fac = random(30, 20)
 
 
-  translate(random_BerryX, random_BerryY)
 
+
+
+
+
+  
+
+
+
+
+  push()
+  noFill()
+  stroke(color_DarkGreen)
+  strokeWeight(2)
+  ellipse (0,0,100,100)
+  translate(random_BerryX, random_BerryY)
+  scale(w / random_Berry_size_Fac, h / random_Berry_size_Fac)
+  beginShape();
+
+  // Add the first anchor point.
+  // vertex(w+random_BerryX*2, h+random_BerryY*2);
+  vertex(0,0)
+
+  // Add the Bézier vertex.
+  bezierVertex(50, -0,
+     50, 25,
+      -random_BerryX/6, random_BerryY
+      , 
+    
+    
+  );
+
+
+  endShape();
+  
+  pop()
+
+  push()
+  translate(random_BerryX, random_BerryY)
   scale(w / random_Berry_size_Fac, h / random_Berry_size_Fac)
   rotate(random(0, 360))
-
   strawBerry(thinness_value, leafHight_value, leafAngle_value, eye_switch_value, mouth_switch_value, petalHight_value, petalWide_value);
-  pop()
+
+pop()
 
   push();
 
@@ -110,15 +163,15 @@ function draw() {
   let heart_H_value = random(0, 100);
   let bigLeaf_Angle_value = random(0, 100);
 
-  let random_LeafX = random(20, 960 - 10)
-  let random_LeafY = random(20, 500 - 10)
-  let random_Leaf_size_Fac = random(30, 20)
+  let random_LeafX = random(450,490)
+  let random_LeafY = random(180,240)
+  let random_Leaf_size_Fac = random(20,15)
 
   translate(random_LeafX, random_LeafY)
   scale(w / random_Leaf_size_Fac, h / random_Leaf_size_Fac)
 
 
-  rotate(random(20 + 180, -90 + 180))
+  rotate(random(-30,30))
   bigLeaf(bigLeaf_H_value, bigLeaf_W_value, heart_W_value, heart_H_value, bigLeaf_Angle_value)
 
 
