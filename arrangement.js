@@ -82,7 +82,7 @@ function draw() {
 
   let random_daisyFace_size_Fac = map(petalNumber_value, 0, 100, 30, 24)
   let random_DaisyX = random(550, 750)
-  let random_DaisyY = random(180, 240)
+  let random_DaisyY = random(230, 290)
 
 
   let thinness_value = random(0, 100);
@@ -107,7 +107,7 @@ function draw() {
   let bigLeaf_Angle_value = random(0, 100);
 
   let random_LeafX = random(450, 490)
-  let random_LeafY = random(180, 240)
+  let random_LeafY = random(120, 280)
   let random_Leaf_size_Fac = random(20, 15)
 
   
@@ -138,7 +138,7 @@ function draw() {
 
   curveVertex(random_LeafX, random_LeafY,);//leaf position
 
-  curveVertex(random_LeafX+random_DaisyX/5, random_LeafY-random_DaisyY/random(9,20));
+  curveVertex(random_LeafX+random_DaisyX/7, random_LeafY-random_DaisyY/random(9,20));
 
   curveVertex(random_DaisyX, random_DaisyY);
 
@@ -147,23 +147,33 @@ function draw() {
   curveVertex(random_DaisyX*1.6, random_DaisyY*0);
 
 
-  // Add the second control point.
+
   curveVertex(960,0);
 
-  // Stop drawing the shape.
-  endShape();
-
-  beginShape();
-  vertex(0, 0)
-  bezierVertex(-30, 10, -20, 25, -random_DaisyX / 6, random_DaisyY);
-  endShape();
-
-    beginShape();
-  vertex(0, 0)
-  bezierVertex(50, -0, 50, 25, -random_BerryX / 6, random_BerryY);
-
 
   endShape();
+
+
+  // beginShape();
+  // vertex(0, 0)
+  // bezierVertex(50, -0, 50, 25, -random_BerryX / 6, random_BerryY);
+
+
+  // endShape();
+  // beginShape();
+  // vertex(0, 0)
+  // bezierVertex(-30, 10, -20, 25, -random_DaisyX / 6, random_DaisyY);
+  // endShape();
+
+
+  // beginShape();
+  // vertex(0, 0)
+  // bezierVertex(10, -0, 40, 25, -random_LeafX / 6, random_LeafY,);
+
+
+  // endShape();
+
+
   
  pop()
 
@@ -219,12 +229,7 @@ function draw() {
   scale(w / random_Leaf_size_Fac, h / random_Leaf_size_Fac)
   strokeWeight(1.5)
 
-  beginShape();
-  vertex(0, 0)
-  bezierVertex(10, -0, 40, 25, -random_LeafX / 6, random_LeafY,);
 
-
-  endShape();
 
 
   rotate(random(0, 360))
