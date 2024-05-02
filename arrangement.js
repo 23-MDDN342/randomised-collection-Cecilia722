@@ -80,7 +80,7 @@ function draw() {
   let petalWide_value = random(0, 100);
   let petalNumber_value = random(0, 100);
 
-  let random_daisyFace_size_Fac = map(petalNumber_value, 0, 100, 30, 24)
+  let random_daisyFace_size_Fac = random(10,24)
   let random_DaisyX = random(550, 750)
   let random_DaisyY = random(230, 290)
 
@@ -92,12 +92,11 @@ function draw() {
   let mouth_switch_value = int(random(1, 3))
 
 
-  petalHight_value = random(0, 100);
-  petalWide_value = random(0, 100);
 
-  random_BerryX = random(200, 380)
-  random_BerryY = random(180, 240)
-  random_Berry_size_Fac = random(30, 20)
+
+  let random_BerryX = random(200, 380)
+ let  random_BerryY = random(180, 240)
+ let  random_Berry_size_Fac = random(17,10)
 
 
   let bigLeaf_H_value = random(0, 100);
@@ -108,110 +107,67 @@ function draw() {
 
   let random_LeafX = random(450, 490)
   let random_LeafY = random(120, 280)
-  let random_Leaf_size_Fac = random(20, 15)
+  let random_Leaf_size_Fac = random(10,8)
 
-  
+
+  let branch_Stroke = 1
+
+  let daisyBranch_Offest = random(200,150)
+  let daisyBranchX = random_DaisyX + daisyBranch_Offest
+  let daisyBranchY = random_DaisyY - daisyBranch_Offest
+
+
+  let StrawBerry_Offest = random(-150,-100)
+  let StrawBerryBranchX = random_BerryX + StrawBerry_Offest
+  let StrawBerryBranchY = random_BerryY - StrawBerry_Offest
+
+  let Leaf_Offest = random(100, 150)
+  let LeafBranchX = random_LeafX - Leaf_Offest
+  let LeafBranchY = random_LeafY - Leaf_Offest
+
+
+
 
   noFill()
   stroke(color_DarkGreen)
-  strokeWeight(2)
+  strokeWeight(19)
   push()
 
- rect(random_BerryX, random_BerryY,100)
- rect( random_LeafX, random_LeafY,100)
- rect( random_DaisyX, random_DaisyY,100)
- 
+
+  //the long vine
   beginShape();
 
-  // Add the first control point and draw a segment to it.
-  curveVertex(0,500);
+
+  curveVertex(0, 500);
 
 
-  // Add the anchor points.
-  curveVertex(random_BerryX*0, random_BerryY*1.1);
-  curveVertex(random_BerryX*0.4, random_BerryY*0.7);
-  curveVertex(random_BerryX*0.6, random_BerryY*1.1);
+  curveVertex(random_BerryX * 0, random_BerryY * 1.1);
+  curveVertex(random_BerryX * 0.4, random_BerryY * 0.7);
+  curveVertex(random_BerryX * 0.6, random_BerryY * 1.1);
 
   curveVertex(random_BerryX, random_BerryY);//berry Position
 
-  curveVertex(random_BerryX+random_LeafX/10, random_BerryY+random_LeafY/random(8,10));
+  curveVertex(random_BerryX + random_LeafX / 10, random_BerryY + random_LeafY / random(8, 10));
 
   curveVertex(random_LeafX, random_LeafY,);//leaf position
 
-  curveVertex(random_LeafX+random_DaisyX/7, random_LeafY-random_DaisyY/random(9,20));
+  curveVertex(random_LeafX + random_DaisyX / 7, random_LeafY - random_DaisyY / random(9, 20));
 
   curveVertex(random_DaisyX, random_DaisyY);
 
-  curveVertex(random_DaisyX*1.2, random_DaisyY*1.1);
-  curveVertex(random_DaisyX*1.3, random_DaisyY*0.5);
-  curveVertex(random_DaisyX*1.6, random_DaisyY*0);
+  curveVertex(random_DaisyX * 1.2, random_DaisyY * 1.1);
+  curveVertex(random_DaisyX * 1.3, random_DaisyY * 0.5);
+  curveVertex(random_DaisyX * 1.6, random_DaisyY * 0);
 
 
 
-  curveVertex(960,0);
+  curveVertex(960, 0);
 
 
   endShape();
 
 
-  // beginShape();
-  // vertex(0, 0)
-  // bezierVertex(50, -0, 50, 25, -random_BerryX / 6, random_BerryY);
 
-
-  // endShape();
-  // beginShape();
-  // vertex(0, 0)
-  // bezierVertex(-30, 10, -20, 25, -random_DaisyX / 6, random_DaisyY);
-  // endShape();
-
-
-  // beginShape();
-  // vertex(0, 0)
-  // bezierVertex(10, -0, 40, 25, -random_LeafX / 6, random_LeafY,);
-
-
-  // endShape();
-
-
-  
- pop()
-
-
-
-  stroke(color_DarkGreen)
-  strokeWeight(2)
-  ellipse(0, 0, 100, 100)
-
-
-
-  strokeWeight(1.5)
-
-
-
-  push()
-
-  translate(random_DaisyX, random_DaisyY);
-  scale(w / random_daisyFace_size_Fac, h / random_daisyFace_size_Fac);
-
-
-  rotate(random(-20,10))
-  daisyFace(tilt_value, eye_value, mouth_value, petalHight_value, petalWide_value, petalNumber_value)
-  pop();
-
-
-
-  push()
-
-  translate(random_BerryX, random_BerryY)
-  scale(w / random_Berry_size_Fac, h / random_Berry_size_Fac)
-
-
-  rotate(random(100, 170))
-
-  strawBerry(thinness_value, leafHight_value, leafAngle_value, eye_switch_value, mouth_switch_value, petalHight_value, petalWide_value);
-  rect(random_BerryX, random_BerryY,100)
-  
   pop()
 
 
@@ -220,21 +176,104 @@ function draw() {
 
 
 
+  
+
+
+  //The Daisy
+  push()
+
+  translate(random_DaisyX, random_DaisyY);
+  scale(w / random_daisyFace_size_Fac, h / random_daisyFace_size_Fac);
 
 
 
+  strokeWeight(branch_Stroke*1.7)//branch stroke
+  //Daisy Branch
+  beginShape();
+  curveVertex(0, 0);
+  curveVertex(daisyBranch_Offest * random_daisyFace_size_Fac / w, -daisyBranch_Offest * random_daisyFace_size_Fac / h,);
+
+  curveVertex(5, random(-10,-20));
+  curveVertex(0, 0);
+  curveVertex(0, 0);
+  endShape();
+  pop()
+
+
+
+  //Daisy Face
+  push()
+  translate(daisyBranchX, daisyBranchY);
+  scale(w / random_daisyFace_size_Fac, h / random_daisyFace_size_Fac);
+  rotate(random(-20, 10))
+  daisyFace(tilt_value, eye_value, mouth_value, petalHight_value, petalWide_value, petalNumber_value)
+  pop();
+
+
+
+  //The StrawBerry
+  push()
+  translate(random_BerryX, random_BerryY)
+  scale(w / random_Berry_size_Fac, h / random_Berry_size_Fac)
+
+
+ 
+  strokeWeight(branch_Stroke)//branch stroke
+
+  //StrawBerry Branch
+  beginShape();
+  curveVertex(0, 0);
+  curveVertex(StrawBerry_Offest * random_Berry_size_Fac / w, -StrawBerry_Offest * random_Berry_size_Fac / h,);
+
+  curveVertex(random(0,2), random(6,10));
+  curveVertex(0, 0);
+  curveVertex(0, 0);
+  endShape();
+  pop()
+
+  //StrawBerry Face
+  push()
+  translate(StrawBerryBranchX, StrawBerryBranchY);
+  scale(w / random_Berry_size_Fac, h / random_Berry_size_Fac)
+  rotate(random(100, 170))
+  strawBerry(thinness_value, leafHight_value, leafAngle_value, eye_switch_value, mouth_switch_value, petalHight_value, petalWide_value);
+  pop()
+
+
+
+
+
+
+  //The Leaf
+  push()
 
 
   translate(random_LeafX, random_LeafY)
   scale(w / random_Leaf_size_Fac, h / random_Leaf_size_Fac)
-  strokeWeight(1.5)
 
 
+  strokeWeight(branch_Stroke)//branch stroke
 
 
-  rotate(random(0, 360))
+  //Leaf Branch
+  beginShape();
+  curveVertex(0, 0);
+  curveVertex(-Leaf_Offest * random_Leaf_size_Fac / w, -Leaf_Offest * random_Leaf_size_Fac / h,);
+  
+  curveVertex(random(-2, 1), random(-9, -10));
+  curveVertex(0, 0);
+  curveVertex(0, 0);
+  endShape();
+  pop()
+
+  //Leaf Random
+  push()
+  translate(LeafBranchX, LeafBranchY)
+  scale(w / random_Leaf_size_Fac, h / random_Leaf_size_Fac)
+  rotate(random(-170, -110))
   bigLeaf(bigLeaf_H_value, bigLeaf_W_value, heart_W_value, heart_H_value, bigLeaf_Angle_value)
-   pop()
+
+  pop()
 
 
 
