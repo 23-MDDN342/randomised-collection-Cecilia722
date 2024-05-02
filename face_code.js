@@ -47,12 +47,10 @@ function heartshape(heart_W_value, heart_H_value) {
 
 
 }
-
+//The Flower Face
 function daisyFace(tilt_value, eye_value, mouth_value, petalHight_value, petalWide_value, petalNumber_value) {
 
-  scale(1, 1);
-  // const bg_color3 = [71, 222, 100];
-  // const fg_color3 = [255, 93, 35];
+
 
   let headSize = 9
   let eyeSize = 1;
@@ -180,7 +178,7 @@ function daisyFace(tilt_value, eye_value, mouth_value, petalHight_value, petalWi
 }
 
 
-
+//the flower petal 
 function petal(petalHight_value, petalWide_value) {
   noStroke()
   let petalHight = map(petalHight_value, 0, 100, 9, 13)
@@ -189,18 +187,11 @@ function petal(petalHight_value, petalWide_value) {
 
 }
 
-
+//the big strawberry leaf
 function bigLeaf(bigLeaf_H_value, bigLeaf_W_value, heart_W_value, heart_H_value, bigLeaf_Angle_value) {
 
   let color_DarkGreen = color("#42421c")
   let color_ResedaGreen = color("#84805a")
-  let color_Tan = color("#d4b48c")
-  let color_IndianRed = color("#bd6868")
-  let color_Carmine = color("#950a1e")
-  let color_RoseWood = color("#5f0d11")
-  let color_Brown = color("#1f0a0b")
-  let color_White = color("#fdf5e5")
-  let color_Yellow = color("#dbb447")
 
 
 
@@ -211,8 +202,6 @@ function bigLeaf(bigLeaf_H_value, bigLeaf_W_value, heart_W_value, heart_H_value,
   let leaf_size_2 = map(bigLeaf_H_value, 0, 100, 0.4, 0.8)
   let leaf_size_3 = map(bigLeaf_H_value, 0, 100, 0.1, 0.39)
 
-  // let leaf_size_2=random(0.4,0.8)
-  // let leaf_size_3=random(0.1,0.39)
 
 
 
@@ -223,7 +212,7 @@ function bigLeaf(bigLeaf_H_value, bigLeaf_W_value, heart_W_value, heart_H_value,
 
 
 
-
+  //first layer
   push()
   translate(0, heartLeaf_pointY)
   scale(1, 1)
@@ -241,7 +230,7 @@ function bigLeaf(bigLeaf_H_value, bigLeaf_W_value, heart_W_value, heart_H_value,
 
 
 
-
+  // 2nd layer(darker)
   stroke(color_DarkGreen)
   fill(color_DarkGreen)
 
@@ -264,7 +253,7 @@ function bigLeaf(bigLeaf_H_value, bigLeaf_W_value, heart_W_value, heart_H_value,
   heartshape(heart_W_value, heart_H_value)
   pop()
 
-
+  //3rd layer(center)
   stroke(color_ResedaGreen)
   fill(color_ResedaGreen)
   push()
@@ -287,7 +276,7 @@ function bigLeaf(bigLeaf_H_value, bigLeaf_W_value, heart_W_value, heart_H_value,
 }
 
 
-//strawberry crown leaf
+//strawberry crown leaf(on top of each strawberry)
 function Leaf(thinness_value, leafHight_value) {
 
   let leafHight = map(leafHight_value, 0, 100, 4, 10)
@@ -295,9 +284,7 @@ function Leaf(thinness_value, leafHight_value) {
 
 
 }
-/*
- * thinness_value ranges from 0-100 and indicates how thin the face is
- */
+
 function strawBerry(thinness_value, leafHight_value, leafAngle_value, eye_switch_value, mouth_switch_value, petalHight_value, petalWide_value) {
   // head
 
@@ -326,8 +313,7 @@ function strawBerry(thinness_value, leafHight_value, leafAngle_value, eye_switch
   fill(color_Carmine);
 
   let head_width = map(thinness_value, 0, 100, 10, 20);
-  // rect(-head_width/2, -9, head_width, 18);
-  // triangle(-head_width / 2, -9, head_width / 2, -9, head_width / 11, 10)
+
 
 
 
@@ -354,25 +340,14 @@ function strawBerry(thinness_value, leafHight_value, leafAngle_value, eye_switch
   let seed_x = -1
   let seed_y = -5
 
-
   noStroke()
-
   fill(color_Yellow)
-
-
-
-
   push()
 
 
   for (let i = 0; i < seed_Number; i++) {
 
-
     rotate(seed_Angle)
-
-
-
-
 
     translate(-seed_SizeX / 2, +seed_SizeY / 2)
 
@@ -380,13 +355,6 @@ function strawBerry(thinness_value, leafHight_value, leafAngle_value, eye_switch
       seed_x - seed_SizeX * 2, seed_y - seed_SizeY,
       seed_x + seed_SizeX, seed_y - seed_SizeY,
       seed_x - seed_SizeX / 2, seed_y + seed_SizeY / 2);
-
-
-
-
-
-
-
     rotate(random(350 / seed_Number, 320 / seed_Number))
 
 
@@ -395,10 +363,12 @@ function strawBerry(thinness_value, leafHight_value, leafAngle_value, eye_switch
   pop()
 
   strokeWeight(1);
-  stroke(color_ResedaGreen);
-  fill(color_ResedaGreen);
+  stroke(color_DarkGreen);
+  fill(color_DarkGreen);
 
 
+
+  // 3 leaves on top
   push()
 
   translate(0, leafPoint_Y)
