@@ -182,7 +182,7 @@ function bigLeaf(bigLeaf_H_value, bigLeaf_W_value, heart_W_value, heart_H_value,
 
 
   let heartLeaf_pointY = 0
-  let bigLeaf_Angle = map(bigLeaf_Angle_value, 0, 100, 90, 140)
+  let bigLeaf_Angle = map(bigLeaf_Angle_value, 0, 100, 90, 120)
 
   let leaf_size_2 = map(bigLeaf_H_value, 0, 100, 0.4, 0.8)
   let leaf_size_3 = map(bigLeaf_H_value, 0, 100, 0.1, 0.39)
